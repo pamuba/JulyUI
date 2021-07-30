@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        span::after{
+            padding:15px;
+        }
+        input:invalid + span::after{
+            content:"❌"
+        }
+        input:valid + span::after{
+            content: "\2713";
+        }
+    </style>
+</head>
+<body>
+    <label>Choose your  preferred party date(required, Aug 12 to 20th)</label>
+    <input type="date" name="John" value="2021-08-12" min="2021-08-12" max="2021-08-20" required /><span></span>
+    <hr>
+    <form>
+        <input type="email" name="email" id="email" 
+        pattern="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}\b" required
+        placeholder="asd@fgh.org">
+        <button>CLICK</button>
+        <button>CLICK</button>
+        <hr>
+        <!-- <input type="time" min="09:00" max="18:00" required>
+        <small>Office hours are 9am to 6pm</small>
+        <div>
+            <input type="submit" value="CLICK">
+        </div> -->
+    </form>
+
+    
+</body>
+</html>
