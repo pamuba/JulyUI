@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+        
+       <div class = "container" style="text-align:center">
+        <input type="color", id="head", value="#FF5733", style="width: 100px">
+        <input type="text", id="font", style="width: 100px"><br>
+        <input type="text", id="text", style="width: 200px", value="Hello">
+       </div>
+
+    <script>
+        var head = document.getElementById("head");
+        var font = document.getElementById("font");
+        var t = document.getElementById("text");
+
+        function a(){
+            // alert("inside")
+            t.style.color = head.value;
+        };
+
+        head.addEventListener('change',a);
+
+        font.addEventListener('change', function(){
+            t.style.fontFamily = font.value;
+        })
+    </script>
+
+    <hr>
+    <form>
+        <input type="time", min="8:00", max="20:00", required>
+        <input type="submit" value="click">
+
+    </form>
+
+
+
+</body>
+</html>
