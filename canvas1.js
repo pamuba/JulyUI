@@ -29,16 +29,49 @@ var c = canvas.getContext('2d')
 // c.stroke()
 
 //arc
-for (let i = 0; i < 3000; i++) {
+// for (let i = 0; i < 300; i++) {
    
-    var x = Math.random() * window.innerWidth
-    var y = Math.random() * window.innerHeight
+//     var x = Math.random() * window.innerWidth
+//     var y = Math.random() * window.innerHeight
 
+//     c.beginPath()
+//     c.arc(x,y, 30, 0, Math.PI*2, true)
+//     c.strokeStyle = "blue"
+//     c.fillStyle = "#"+i*3
+//     c.fill()
+//     c.stroke();
+// }
+
+//bouncing  ball 
+// to make mean of dx, dy be 0
+var x = Math.random() * window.innerWidth
+var y = Math.random() * window.innerHeight
+var dx = (Math.random()-0.5) * 10
+var dy = (Math.random()-0.5) * 10
+var radius = 30;
+
+function animate(){
+    c.clearRect(0,0,innerWidth, innerHeight)
+    requestAnimationFrame(animate)
     c.beginPath()
-    c.arc(x,y, 30, 0, Math.PI*2, true)
-    c.strokeStyle = "blue"
-    c.fillStyle = "#"+i*3
+    c.arc(x,y, radius, 0, Math.PI*2, true)
+    c.strokeStyle = "gold"
+    c.fillStyle = "blue"
     c.fill()
     c.stroke();
-}
+    console.log("Called")
 
+    if(x+radius > innerWidth || x-radius < 0){
+        dx = -dx
+    }
+
+    x+=dx;
+
+    if(y+radius > innerHeight || y-radius < 0){
+        dy = -dy
+    }
+
+    y+=dy;
+
+}
+animate()

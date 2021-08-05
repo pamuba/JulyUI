@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            User Name:<input type="text" id="username" onclick="loadUser()" /><br>
+            Password: <input type="password" id="password" />
+            <hr>
+            <input type="button" onclick="saveUser()" value="Login">
+            <input type="button" onclick="removeUser()" value="Reset">
+        </div>
+    </div>
+    <script>
+        function loadUser(){
+            username = document.getElementById("username")
+            if(localStorage.username){
+                username.value = localStorage.username;
+                // username.value = localStorage.getItem("username");
+            }
+        }
+        function saveUser(){
+            username = document.getElementById("username")
+            localStorage.username = username.value
+        }
+        function removeUser(){
+            localStorage.removeItem('username')
+        }
+        // localStorage.setItem("firstname", "Eureka")
+        // const name = localStorage.getItem("firstname")
+        // if(name === null)
+        //     alert('No Vlaue')
+        // else
+        //     alert(name)
+        
+        localStorage.removeItem("firstname")
+    </script>
+</body>
+</html>
