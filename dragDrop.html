@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function dragstart_handler(event){
+            //atach the p1 to the data transfer object
+            // console.log(event)
+            event.dataTransfer.setData("text/plain", event.target.id)
+            console.log(event.target.id)
+            event.dataTransfer.dropEffect = "move"
+        }
+
+        window.addEventListener('DOMContentLoaded', ()=>{
+            const element = document.getElementById("p1");
+            element.addEventListener("dragstart", dragstart_handler)
+        })
+        
+        function dragover_handler(event){
+            event.preventDefault();
+            event.dataTransfer.dropEffect = "move";
+        }
+
+        function drop_handler(event){
+            const data = event.dataTransfer.getData("text/plain");
+            console.log(data)
+            event.target.appendChild(document.getElementById(data))
+        }
+    </script>
+    <div class="container">
+        <p style="border:1px solid red" draggable="true" id="p1">This paragraph is Dragabble</p>
+        <p id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)" style="border:1px solid black">This paragraph is the target</p>
+    </div>
+</body>
+</html>
