@@ -1,0 +1,49 @@
+/* p{
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+#div{
+    text-align: center;
+    font-size: 20px;
+    color: blue;
+}
+.test{
+    text-align: center;
+    font-size: 20px;
+    color: green;
+} */
+
+/* p + div {
+    text-align: center;
+    font-size: 20px;
+    color: green;
+} */
+/* 
+p i:first-child{
+    color: red;
+} 
+
+a:link {
+    color:red
+}
+a:visited{
+    color:green
+}
+a:hover{
+    color:hotpink
+}
+a:active{
+    color: lawngreen;
+}
+#user:focus{
+    background-color: lawngreen;
+} */
+
+/* p:first-child{
+    color: red;
+} */
+
+p:nth-child(even){
+    color: red;
+}
