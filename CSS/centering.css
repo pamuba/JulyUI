@@ -1,0 +1,17 @@
+/* body{
+    /* height: 400px;
+    width:400px;
+    border:5px solid black; */
+    border:5px solid black;
+    height: 100vh;
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item{
+    height: 80px;
+    width:80px;
+    border: 3px solid orange;
+} */
