@@ -4,26 +4,8 @@ body{
 .container{
     border: 6px solid black;
     display:flex;
-    /* display:inline-flex; */
-
-    /* flex-direction: row; */
-    /* flex-direction: row-reverse; */
-    /* flex-direction: column; */
-    /* flex-direction: column-reverse; */
-
-    /* flex-wrap: nowrap; */
-    /* flex-wrap:wrap; */
-    /* flex-wrap:wrap-reverse; */
-
-    /* flex-flow = fkex-direction + flex-flow: ; */
-
-    /* height:400px;
-
-    flex-flow: column-reverse wrap-reverse; */
-    /* justify-content: center; */
-   /* justify-content: flex-start; */
-   justify-content: flex-end;
-
+    height:400px;
+    align-items: stretch;
 }
 .flex-item{
     color:white;
@@ -33,28 +15,42 @@ body{
 }
 .item-1{
     background-color: yellow;
+    /* padding-bottom: 3rem; */
+    align-self: flex-start;
 }
 .item-2{
     background-color:tomato;
+    /* padding-bottom: 5rem; */
+    /* flex-shrink: 4; */
+    align-self: flex-end;
 }
 .item-3{
     background-color:steelblue;
+    /* font-size: 3rem; */
+    /* order:1; */
+    align-self: center;
 }
 .item-4{
     background-color:yellowgreen;
+    align-self: stretch;
 }
 .item-5{
     background-color: maroon;
+    /* flex-grow: 1; */
 }
 .item-6{
     background-color: deepskyblue;
+    /* flex-grow: 3; */
 }
 .item-7{
     background-color: red;
+    /* order:-2 */
 }
 .item-8{
     background-color: green;
+    /* order: -1; */
 }
 .item-9{
     background-color: darkblue;
+    /* order:1 */
 }

@@ -32,3 +32,62 @@ inline-block
 inline
 
 max-width  vs width
+
+justify-content: Main Axis
+
+Align Items : Cross Axis
+*flex-start, end, center
+basline
+stretch
+
+Align Content(justify-conten+Align Items): aligns the content across the cross axis
+** Multiple rows 
+
+shrink depends on:
+content
+other elements around it
+default:1
+
+///////////////////////////////////////
+
+.item{
+    flex-grow:2,
+    flex-shrink:5,
+    flex-basis:200px
+}
+
+.item{
+    flex: 2 5 200px
+}
+
+.item{
+    flex: 0 1 auto;
+}
+
+///////////////////////////
+//One value, unit less=> flex-grow
+flex:2;
+
+//One value, width/height => flex-basis
+flex:10em
+
+//Two values, flex-grow  flex-basis
+flex:1 30px
+
+//Twp values,  flex grow  flex-shrink
+flex:2 2;
+//
+flex: 2 2 50%
+
+
+default value for align-self : auto
+
+align-items from parent will be inherited if there is no align self 
+for the individual items
+
+
+///scenarios
+1. menu
+2. center align
+3. variable height
+4. Holy Grail Layout
