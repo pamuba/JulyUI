@@ -9,7 +9,11 @@ module:feature implementation of the project(directives, controllers, services..
 6. ng-controllers
 7. 2 way data binding
 8. {{ }} interpolation .... 1 way data binding
-5. ng-model ... 2 way data binding
+9. ng-model ... 2 way data binding
+10. ng-repeat
+11. Events
+12. filters/pipes
+
 
 AngularJS > [()] is used to do 2 way binding in Angular
 
