@@ -1,0 +1,2 @@
+module:feature implementation of the project(directives, controllers, services...)
+-container(directives, controllers, services...)
