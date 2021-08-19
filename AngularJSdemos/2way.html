@@ -7,22 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
-    <script src="first.js"></script>
+    <script src="2way.js"></script>
 </head>
 <body>
-    <div ng-controller="myController">
-        {{message}}<br>
-        {{name}}
-    </div>
-    <div ng-controller="myController1">
-        {{message}}<br>
-        {{name}}
-    </div>
-    <div ng-controller="myController2">
-        First name: {{ employees.firstName }}<br>
-        Last name: {{ employees.lastName }}<br>
-        Gender: {{ employees.gender }}<br>
-        <img src="{{ employees.flag}}" style="height:300px; width:400px" alt="flag" />
+    <div ng-controller="myController" class="container">
+        2 WAY: <input type="text" ng-model="message" /><br>
+        1 WAY: {{message}}
+        
     </div>
 </body>
 </html>
