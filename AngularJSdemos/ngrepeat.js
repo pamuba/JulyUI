@@ -37,7 +37,24 @@ var myApp = angular
                         }
                     ];
 
+                    var technologies = [
+                        {name:"Angular" , likes:0, dislikes:0},
+                        {name:"React" , likes:0, dislikes:0},
+                        {name:"MogoDB" , likes:0, dislikes:0},
+                        {name:"VueJS" , likes:0, dislikes:0},
+                        {name:"Grap QL" , likes:0, dislikes:0},
+                        {name:"Native" , likes:0, dislikes:0},
+                    ]
+
                     $scope.employees = employees;
                     $scope.countries = countries;
+                    $scope.technologies = technologies;
+
+                    $scope.incrementLikes = function(tehnology){
+                        tehnology.likes++
+                    }
+                    $scope.incrementDislikes = function(tehnology){
+                        tehnology.dislikes++
+                    }
                 })
 
