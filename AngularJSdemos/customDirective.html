@@ -7,11 +7,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
-    <script src="hide_show.js"></script>
+    <script src="customDirective.js"></script>
 </head>
 <body>
-    <div ng-controller="myController" class="container">
-        
+    <div class="container">
+        This is a message
+        <div ng-controller="myController">
+            <div my-info-msg>
+                <!-- Content from the template -->
+           </div>
+           <my-info-msg></my-info-msg>
+        </div>
+        <!-- <script type="text/ng-template" id="my-info-msg.html">
+            
+        </script> -->
     </div>
 </body>
 </html>
