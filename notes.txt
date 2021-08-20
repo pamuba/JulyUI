@@ -13,6 +13,14 @@ module:feature implementation of the project(directives, controllers, services..
 10. ng-repeat
 11. Events
 12. filters/pipes
+13. ng-hide ng-show
+14. Custom Directives
+15. Different kinds of directives
+a. Component (Containes own HTML)
+b. Decorators : enhances the functionality of existing directives
+c. Templating directives: can add or remove elemnts from the DOM
+    ng-repeat
+
 
 
 AngularJS > [()] is used to do 2 way binding in Angular
