@@ -25,3 +25,9 @@ c. Templating directives: can add or remove elemnts from the DOM
 
 AngularJS > [()] is used to do 2 way binding in Angular
 
+
+Client Side Routing:
+1. ngRoute($routeProvider, ng-view)
+2. UI Router
+
+#!/
