@@ -1,0 +1,8 @@
+1. try catch
+2. callbacks(1st arg is err)
+3. emit on error event
+4. using domain
+
+////////////////////////
+5. cluster
+
