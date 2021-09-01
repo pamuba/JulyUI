@@ -15,3 +15,15 @@ gulp
 4. sass compile + minify + rename + autoprefixer + sourcemaps
    gulp-sourcemaps(3.0.0)
    gulp-autoprefixer(7.0.1)
+
+5. transpile babelify + minify + rename + autoprefixer + sourcemaps
+   babel-core@6.26.3
+   babel-preset-env@1.7.0
+   babelify@8.0.0
+   browserify@17.0.0
+   vinyl-buffer@1.0.1
+   vinyl-source-stream@2.0.0
+   gulp-uglify@3.0.2
+
+6. image minifivation
+   gulp-imagemin

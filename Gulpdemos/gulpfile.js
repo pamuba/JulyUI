@@ -5,6 +5,14 @@ let rename = require('gulp-rename')
 let sass = require('gulp-sass')
 let autoprefixer = require('gulp-autoprefixer')
 let sourcemaps = require('gulp-sourcemaps')
+let browserify = require('browserify')
+let babelify = require('babelify')
+let source = require('vinyl-source-stream')
+let buffer = require('vinyl-buffer')
+let uglify = require('gulp-uglify')
+// let imagemin = require('gulp-imagemin')
+import imagemin from 'gulp-imagemin';
+
 
 //gulp -g in case of error
 //gulp --tasks lists all tasks
@@ -89,22 +97,68 @@ let sourcemaps = require('gulp-sourcemaps')
 // })
 
 //sass compile + minify + rename + autoprefixer + sourcemaps
-const styleSRC = './src/scss/style.scss'
-const styleDEST = "./dist/css"
+// const styleSRC = './src/scss/style.scss'
+// const styleDEST = "./dist/css"
 
-gulp.task('styles', function(done){
-    gulp.src(styleSRC)
-        .pipe(sourcemaps.init())
-        .pipe(sass({
-            outputStyle:'compressed'
-        }))
-        .on('error', console.error.bind(console))
-        .pipe(autoprefixer({
-            cascade:false
-        }))
-        .pipe(cleanCSS())
-        .pipe(rename({suffix:'.min'}))
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(styleDEST))
+// gulp.task('styles', function(done){
+//     gulp.src(styleSRC)
+//         .pipe(sourcemaps.init())
+//         .pipe(sass({
+//             outputStyle:'compressed'
+//         }))
+//         .on('error', console.error.bind(console))
+//         .pipe(autoprefixer({
+//             cascade:false
+//         }))
+//         .pipe(cleanCSS())
+//         .pipe(rename({suffix:'.min'}))
+//         .pipe(sourcemaps.write('./'))
+//         .pipe(gulp.dest(styleDEST))
+//     done()
+// })
+
+//browserify
+//transform babelify
+//bundle
+//source
+//rename
+//buffer
+//init sourcemaps
+//uglify
+//write sourcemaps
+//dist
+
+// let jsSRC = 'script.js'
+// let jsFolder = './src/js/'
+// let jsDEST = './dist/js/'
+
+// var jsFiles = [jsSRC]
+
+// gulp.task('js', function(done){
+//     jsFiles.map(function(entry){
+//         return browserify({
+//             entries:[jsFolder+entry]
+//         })
+//         .transform(babelify, {presets:['env']})
+//         .bundle()
+//         .pipe(source(entry))
+//         .pipe(rename({extname:".min.js"}))
+//         .pipe(buffer())
+//         .pipe(sourcemaps.init({loadMaps:true}))
+//         .pipe(uglify())
+//         .pipe(sourcemaps.write('./'))
+//         .pipe(gulp.dest(jsDEST))
+
+//     });
+//     done()
+// })
+
+let imgSRC = './src/images/*'
+let imgDEST = './dist/images/'
+
+gulp.task('image', function(done){
+    gulp.src(imgSRC)
+        .pipe(imagemin())
+        .pipe(gulp.dest(imgDEST));
     done()
 })
