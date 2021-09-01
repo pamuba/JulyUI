@@ -10,8 +10,8 @@ let babelify = require('babelify')
 let source = require('vinyl-source-stream')
 let buffer = require('vinyl-buffer')
 let uglify = require('gulp-uglify')
-// let imagemin = require('gulp-imagemin')
-import imagemin from 'gulp-imagemin';
+let imagemin = require('gulp-imagemin')
+// import imagemin from 'gulp-imagemin';
 
 
 //gulp -g in case of error
@@ -97,25 +97,25 @@ import imagemin from 'gulp-imagemin';
 // })
 
 //sass compile + minify + rename + autoprefixer + sourcemaps
-// const styleSRC = './src/scss/style.scss'
-// const styleDEST = "./dist/css"
+const styleSRC = './src/scss/style.scss'
+const styleDEST = "./dist/css"
 
-// gulp.task('styles', function(done){
-//     gulp.src(styleSRC)
-//         .pipe(sourcemaps.init())
-//         .pipe(sass({
-//             outputStyle:'compressed'
-//         }))
-//         .on('error', console.error.bind(console))
-//         .pipe(autoprefixer({
-//             cascade:false
-//         }))
-//         .pipe(cleanCSS())
-//         .pipe(rename({suffix:'.min'}))
-//         .pipe(sourcemaps.write('./'))
-//         .pipe(gulp.dest(styleDEST))
-//     done()
-// })
+gulp.task('styles', function(done){
+    gulp.src(styleSRC)
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            outputStyle:'compressed'
+        }))
+        .on('error', console.error.bind(console))
+        .pipe(autoprefixer({
+            cascade:false
+        }))
+        .pipe(cleanCSS())
+        .pipe(rename({suffix:'.min'}))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(styleDEST))
+    done()
+})
 
 //browserify
 //transform babelify
@@ -128,37 +128,45 @@ import imagemin from 'gulp-imagemin';
 //write sourcemaps
 //dist
 
-// let jsSRC = 'script.js'
-// let jsFolder = './src/js/'
-// let jsDEST = './dist/js/'
+let jsSRC = 'script.js'
+let jsFolder = './src/js/'
+let jsDEST = './dist/js/'
 
-// var jsFiles = [jsSRC]
+var jsFiles = [jsSRC]
 
-// gulp.task('js', function(done){
-//     jsFiles.map(function(entry){
-//         return browserify({
-//             entries:[jsFolder+entry]
-//         })
-//         .transform(babelify, {presets:['env']})
-//         .bundle()
-//         .pipe(source(entry))
-//         .pipe(rename({extname:".min.js"}))
-//         .pipe(buffer())
-//         .pipe(sourcemaps.init({loadMaps:true}))
-//         .pipe(uglify())
-//         .pipe(sourcemaps.write('./'))
-//         .pipe(gulp.dest(jsDEST))
+gulp.task('js', function(done){
+    jsFiles.map(function(entry){
+        return browserify({
+            entries:[jsFolder+entry]
+        })
+        .transform(babelify, {presets:['env']})
+        .bundle()
+        .pipe(source(entry))
+        .pipe(rename({extname:".min.js"}))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps:true}))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(jsDEST))
 
-//     });
+    });
+    done()
+})
+
+// let imgSRC = './src/images/*'
+// let imgDEST = './dist/images/'
+
+// gulp.task('image', function(done){
+//     gulp.src(imgSRC)
+//         .pipe(imagemin())
+//         .pipe(gulp.dest(imgDEST));
 //     done()
 // })
 
-let imgSRC = './src/images/*'
-let imgDEST = './dist/images/'
+var styleWatch = './src/scss/**/*.scss'
+var jsWatch = './src/js/**/*.js'
 
-gulp.task('image', function(done){
-    gulp.src(imgSRC)
-        .pipe(imagemin())
-        .pipe(gulp.dest(imgDEST));
-    done()
+gulp.task('watch', function(){
+    gulp.watch(styleWatch, gulp.series('styles'))
+    gulp.watch(jsWatch, gulp.parallel('js'))
 })
