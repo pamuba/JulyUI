@@ -1,0 +1,17 @@
+gulp
+
+
+1.gulp-jshint
+ dependency = jshint
+
+
+2. minify and rename css files
+  gulp-rename
+  gulp-clean-css
+
+3. sass compile + minify + rename
+   gulp-sass(4.1.0)
+ 
+4. sass compile + minify + rename + autoprefixer + sourcemaps
+   gulp-sourcemaps(3.0.0)
+   gulp-autoprefixer(7.0.1)
