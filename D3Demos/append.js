@@ -4,7 +4,7 @@ const svg = d3.select("#chart-area").append("svg")
 
 
 // enter update exit selections
-const data = [25, 20, 10, 12, 15, 25]
+const data = [25, 20, 10, 12, 15, 23]
 
 const circles = svg.selectAll("circle")
                     .data(data)
@@ -14,7 +14,7 @@ circles.enter().append("circle")
                 .attr("cx", (d,i)=>(i*50)+50)
                 .attr("cy", 100)
                 .attr("r", (d,i)=>d)
-                .attr("fill", "red")
+                .attr("fill", (d)=>{if(d>20){return "blue"}else {return "red"}})
 
 // svg.append("circle")
 //    .attr("cx",100)
