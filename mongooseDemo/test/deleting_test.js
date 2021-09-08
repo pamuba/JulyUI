@@ -11,16 +11,15 @@
 //         })
 //         char.save().then(function(){
 //             assert(char.isNew === false);
+//             done();
 //         })
-//         // .catch((error)=>{console.log(error); done()})
-//         done();
+    
 //     })
 //     it("Deletes one record from the database", function(done){
-//         GameChar.findOneAndRemove({name:'Sally'}).then(function(){
-//             GameChar.findOne({name:'Sally'}).then(function(result){
-//                 assert(result === null)
-//             })
+//         GameChar.findOneAndRemove({name:'Sally'}).then(async()=>{
+//             let result = await GameChar.findOne({name:'Sally'})
+//             assert(result === null)
 //             done()
-//         })
+//         }).catch(done)
 //     })
 // })

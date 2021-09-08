@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
-const GameChar = require('../models/gameChar')
+// const mongoose = require('mongoose')
+// const GameChar = require('../models/gameChar')
 
-//test suite
-// xdescribe('Saving Test', ()=>{
+// //test suite
+// describe('Saving Test', ()=>{
 //     it("Saves a new record to the database", ()=>{
 //         var char = new GameChar({
 //             name:'John',

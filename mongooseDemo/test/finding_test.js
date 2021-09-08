@@ -15,12 +15,8 @@
         
 //     })
 
-//     it("Finds a record in the database", function(done){
-//         GameChar.findOne({name:"Kim"}).then(function(result){
+//     it("Finds a record in the database", async ()=>{
+//             let result = await GameChar.findOne({name:"Kim"})
 //             assert(result.name === 'Kim')
-//             done();
 //         })
-        
-//     })
-       
 // })
