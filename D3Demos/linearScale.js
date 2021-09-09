@@ -1,117 +1,107 @@
-const MARGIN = {LEFT:100, RIGHT:10, TOP:10, BOTTOM:130}
-
+const MARGIN = { LEFT: 100, RIGHT:10, TOP:10, BOTTOM:130 }
 const WIDTH = 600 - MARGIN.LEFT - MARGIN.RIGHT
 const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM
 
-const svg = d3.select("#chart-area").append("svg")
-              .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
-              .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+const svg = d3.select('#chart-area').append("svg")
+                .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+                .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
 
 
+//Create the group
 const g = svg.append("g")
-            .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`) 
+             .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
 
-// X Label
+
+// x label
 g.append("text")
     .attr("class", "x axis-label")
     .attr("x", WIDTH/2)
     .attr("y", HEIGHT + 110)
     .attr("font-size", "20px")
     .attr("text-anchor", "middle")
-    .text("The world's Tallest Building")
+    .text("The Wold's Tallest Buildings")
 
 
-// Y Label
+// y label
 g.append("text")
     .attr("class", "y axis-label")
-    .attr("x", -(HEIGHT/2))
+    .attr("x",  -(HEIGHT/2))
     .attr("y", -60)
     .attr("font-size", "20px")
     .attr("text-anchor", "middle")
     .attr("transform", "rotate(-90)")
-    .text("Height (m)")
+    .text("Height(Feet)")
 
-    //BandScale
-    const x = d3.scaleBand()
-    .range([0, WIDTH])
-    .paddingInner(0.2)
-    .paddingOuter(0.5)
-
-
-
-  //LS for the height or the y axis
-  const y = d3.scaleLinear()
-      .range([HEIGHT, 0])
-
-
-  const xAxisGroup = g.append("g")
-  .attr("class", "x axis")
-  .attr("transform", `translate(0, ${HEIGHT})`)
-
-  const yAxisGroup = g.append("g")
-  .attr("class", "x axis")  
-
-
-
-    d3.json("data/buildings.json").then(data => {
+d3.json("data/buildings.json").then(data => {
+    console.log(data)
     data.forEach(d => {
         d.height = Number(d.height)
     })
-
-  
+   
 
     d3.interval(()=>{
         update(data)
-        console.log("Updating")
-    },1000)
-
+    }, 1000)
     update(data)
+    }).catch(err=>{
+    console.log(err.message)
 })
 
-function update(data){
-  
-    x.domain(data.map(d => d.name))
-    y.domain([0, d3.max(data, d => d.height)])
+
+    function update(data){
 
 
-    const xAxisCall = d3.axisBottom(x)
-    xAxisGroup 
-    .call(xAxisCall)
-    .selectAll("text")
-    .attr("y", "10")
-    .attr("x", "-5")
-    .attr("text-anchor", "end")
-    .attr("transform", "rotate(-40)")
+        //Band Scale
+        const x = d3.scaleBand()
+        .domain(data.map(d=>d.name))
+        .range([0, WIDTH])
+        .paddingInner(.2)
+        .paddingOuter(.5)
+
+        // console.log(x("Burj Khalifa"))
+
+        //Scale Linear
+        const y = d3.scaleLinear()
+            .domain([0,d3.max(data, d => d.height)])
+            .range([HEIGHT, 0])
 
 
-    const yAxisCall = d3.axisLeft(y)
-    .ticks(3)
-    .tickFormat( d => d+'m')
-   yAxisGroup    
-    .call(yAxisCall)      
+        //Color Linear
+        var color = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.height)])
+            .range(["red", "blue"])
 
-    //JOIN new data with old elements
-    const rects = g.selectAll('rects')
+        //x axis
+        const xAxisCall = d3.axisBottom(x)
+        g.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(0, ${HEIGHT})`)
+        .call(xAxisCall)
+        .selectAll("text")
+            .attr("y", "10")
+            .attr("x", "-5")
+            .attr("text-anchor", "end")
+            .attr("transform", "rotate(-40)")
+
+        //y axis
+        const yAxisCall = d3.axisLeft(y)
+            .ticks(3)
+            .tickFormat(d=>d+' Ft')
+        g.append("g")
+        .attr("class", "y axis")
+        .call(yAxisCall)
+
+
+        const circles = g.selectAll('rect')
         .data(data)
 
-    //EXIT old elements not present in new data
-    rects.exit().remove()
+        circles.enter().append("rect")
+        .attr("y", d => y(d.height))
+        .attr("x", (d) => x(d.name))
+        .attr("width", x.bandwidth)
+        .attr("height", d => HEIGHT - y(d.height))
+        .attr("fill", (d)=>{ return color(d.height)})
 
-    //UPDATE old elements present in new data
-    rects
-    .attr("y", d => y(d.height))
-    .attr("x", (d) => x(d.name))
-    .attr("width", x.bandwidth)
-    .attr("height", d => HEIGHT - y(d.height))
-
-
-    //ENTER new elements present in new data but not in the chart
-    rects.enter().append("rect")
-    .attr("y", d => y(d.height))
-    .attr("x", (d) => x(d.name))
-    .attr("width", x.bandwidth)
-    .attr("height", d => HEIGHT - y(d.height))
-    .attr("fill", "grey")
-
-}
+    
+    }
 
