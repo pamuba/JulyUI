@@ -33,3 +33,7 @@ Class Binding: CSS classes
 class=""  [class]=""
 
 Any one not both
+
+() are used for event binding
+
+template refrence variable
