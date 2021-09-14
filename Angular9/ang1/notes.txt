@@ -37,3 +37,20 @@ Any one not both
 () are used for event binding
 
 template refrence variable
+
+Angular Material
+
+ngSwitch
+
+ngFor
+
+pipes
+
+custom pipes
+
+services
+
+DRY
+SRP
+
+HTTP Calls
