@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {routingComponent} from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DeparmentDetailComponent } from './deparment-detail/deparment-detail.component'
+import { DeparmentDetailComponent } from './deparment-detail/deparment-detail.component';
+import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
+import { DepartmentContactComponent } from './department-contact/department-contact.component'
 @NgModule({
   declarations: [
     AppComponent,
     routingComponent,
     PageNotFoundComponent,
-    DeparmentDetailComponent
+    DeparmentDetailComponent,
+    DepartmentOverviewComponent,
+    DepartmentContactComponent
   ],
   imports: [
     BrowserModule,
