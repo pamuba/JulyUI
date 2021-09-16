@@ -15,6 +15,29 @@ mongoose.connect(db, err=>{
     }
 })
 
+//middleware function
+function verifyToken(req, res, next){
+  if(!req.headers.authorization){
+    return res.status(401).send('Unauthorized Request')
+  }
+  else{
+    let token = req.headers.authorization.split(' ')[1]
+    if(token === 'null'){
+      return res.status(401).send('Unauthorized Request')
+    }
+    else{
+      let payload = jwt.verify(token, 'secretKey')
+      if(!payload){
+        return res.status(401).send('Unauthorized Request')
+      }
+      else{
+        req.userId = payload.subject
+        next()
+      }
+    }
+  }
+}
+
 // localhost:3000/api === /
 router.get('/', (req, res)=>{
     res.send('From Api route')
@@ -110,7 +133,7 @@ router.get('/events', (req, res)=>{
 })
 
 
-router.get('/special', (req, res)=>{
+router.get('/special', verifyToken, (req, res)=>{
     let events = [
         {
             "_id": "1",
