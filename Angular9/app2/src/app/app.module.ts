@@ -8,7 +8,8 @@ import {routingComponent} from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DeparmentDetailComponent } from './deparment-detail/deparment-detail.component';
 import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
-import { DepartmentContactComponent } from './department-contact/department-contact.component'
+import { DepartmentContactComponent } from './department-contact/department-contact.component';
+import { GreetComponent } from './greet/greet.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { DepartmentContactComponent } from './department-contact/department-cont
     PageNotFoundComponent,
     DeparmentDetailComponent,
     DepartmentOverviewComponent,
-    DepartmentContactComponent
+    DepartmentContactComponent,
+    GreetComponent
   ],
   imports: [
     BrowserModule,
