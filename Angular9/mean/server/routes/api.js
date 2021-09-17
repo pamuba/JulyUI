@@ -63,7 +63,7 @@ router.post('/video',function(req, res){
 })
 
 //Updating a video
-router.put('videos/:id', function(req, res){
+router.put('/video/:id', function(req, res){
     console.log('Updating a Video')
     Video.findByIdAndUpdate(req.params.id,
         {
@@ -82,7 +82,7 @@ router.put('videos/:id', function(req, res){
     )
 });
 //Delete a document
-router.delete('videos/:id', function(req, res){
+router.delete('video/:id', function(req, res){
     console.log('Deleting a Video')
     Video.findByIdAndRemove(req.params.id, function(err, deletedVideo){
         if(err){
