@@ -22,3 +22,22 @@ JSX = Javascript XML(extension to JS language syntex)
 
 PROPS:
 1. Every componet receives one props object
+2. Props are Immutable
+
+
+STATE:
+1. Class has state , now function componet can have state(useState hook)
+2. state can be changed
+
+**why we need to bind the this keyword inside a function
+**Because the function is called by the component
+
+
+class test{
+
+  draw = () => {
+      //pen
+      this.pen = red;
+  }
+
+}
