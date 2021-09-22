@@ -1,0 +1,24 @@
+Class Component(es6 classes)
+1. Maintain their own private data - state
+
+Person(name, age)
+person(name="" , age="")
+
+2. Lifecycle hooks
+
+Function Components(simple functions)
+1. No state(can implement state using hooks)
+2. No this
+3. Use fn components as much as possible
+
+16.4 alpha - hooks
+
+JSX = Javascript XML(extension to JS language syntex)
+1. Write XML-like code for elements and components
+2. JSX - tag names, attributes, children
+3. JSX is not necessary to write REACT appliations
+4. Code becomes simple and elegent
+5. JSX ultimately transpiles to pure JS which is undesttod by the browsers
+
+PROPS:
+1. Every componet receives one props object
