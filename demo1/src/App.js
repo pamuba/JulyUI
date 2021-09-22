@@ -3,6 +3,8 @@ import './App.css';
 import Greet from './comonents/Greet';
 import Welcome from './comonents/Welcome';
 import Message from './comonents/Message';
+import Counter from './comonents/Counter';
+import EventBind from './comonents/EventBind';
 
 
 function App() {
@@ -17,7 +19,11 @@ function App() {
          <Greet name="Diana" heroName="Wonderwoman" add="usa"/>
          <Welcome name="Tony Stark" heroName="Ironman"></Welcome> */}
         
-        <Message/>
+        {/* <Message/> */}
+
+        {/* <Counter/> */}
+
+        <EventBind />
       </header>
     </div>
   );
