@@ -7,6 +7,11 @@ app.use(express.json())
 app.use("/todos", todoRoutes)
 mongodb.connect();
 
+app.use((error, req, res, next)=>{
+    // console.log(error)
+    res.status(500).json({message:error.message});
+})
+
 app.get("/", (req, res) => {
     res.json("Hello World")
 });
