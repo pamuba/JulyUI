@@ -41,3 +41,35 @@ class test{
   }
 
 }
+
+Method as props : 
+
+Conditional Rendering 
+1. if/else
+2. Element Variables
+3. Ternary conditional operator
+4. Short circuit operator
+
+
+List + Keys
+
+Styling React Components
+1. CSS Stylesheets
+2. Inline Styling
+3. CSS Modules
+4. CSS in JS Libraries
+5. Pure Component
+
+Shallow Comparison:
+Primitive Types:
+a (SC) b rtun true if a and b have the same value + of same Types
+
+Complex Types:
+a (SC) b retuns true if a and b reference the same exact object
+
+
+Pure Comp vs Reg Comp
+RC - shouldComponentUpdate always retuns TRUE
+
+PC - shouldComponentUpdate for performing SC , true/false
+

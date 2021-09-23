@@ -5,12 +5,36 @@ import Welcome from './comonents/Welcome';
 import Message from './comonents/Message';
 import Counter from './comonents/Counter';
 import EventBind from './comonents/EventBind';
+import ParentComponent from './comonents/ParentComponent';
+import UserGreeting from './comonents/UserGreeting';
+import NameList from './comonents/NameList';
+import Stylesheet from './comonents/Stylesheet';
+import Inline from './comonents/Inline';
+import Form from './comonents/Form'
+
+import './comonents/appStyles.css';
+import styles from './comonents/appStyles.module.css';
+import  PureComp  from './comonents/PureComp';
+import ParentComp from './comonents/ParentComp';
+import RefsDemo from './comonents/RefsDemo';
 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+
+        <RefsDemo/>
+
+       {/* <ParentComp/> */}
+
+        {/* <Form></Form> */}
+
+        {/* <h1 className='error'>ERROR</h1>
+        <h1 class={styles.success}>SUCCESS</h1>
+
+        <Inline/> */}
+        {/* <Stylesheet primary={true}/> */}
          {/* <Greet name="Bruce" heroName="Batman" add="usa">
            <p>This is cildren props</p>
            <button>CLICK</button>
@@ -23,7 +47,14 @@ function App() {
 
         {/* <Counter/> */}
 
-        <EventBind />
+        {/* <EventBind /> */}
+
+        {/* <ParentComponent/> */}
+
+        {/* <UserGreeting/> */}
+
+        {/* <NameList /> */}
+
       </header>
     </div>
   );
