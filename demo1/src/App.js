@@ -25,6 +25,7 @@ import HoverCounter from './comonents/HoverCounter';
 import ComponentC from './comonents/ComponentC'
 import { UserProvider} from './comonents/userContext'
 import PostList from './comonents/PostList';
+import PostForm from './comonents/PostForm';
 
 
 function App() {
@@ -32,7 +33,9 @@ function App() {
     <div className="App">
       <header className="App-header">
 
-        <PostList/>
+        <PostForm />
+
+        {/* <PostList/> */}
 
         {/* <UserProvider value="TonyStark">
          <ComponentC />
