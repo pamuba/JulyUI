@@ -21,6 +21,7 @@ import Hero from './comonents/Hero';
 import ErrorBoundary from './comonents/ErrorBoundary';
 import PortalDemo from './comonents/PortalDemo';
 import ClickCounter from './comonents/ClickCounter';
+import HoverCounter from './comonents/HoverCounter';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
         {/* <PortalDemo/> */}
         <ClickCounter/>
+        <HoverCounter />
 
         {/* <ErrorBoundary>
           <Hero heroName="Batman" />
