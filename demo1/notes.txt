@@ -109,6 +109,9 @@ Unmounting:
 1. componentWillUnmount
 
 Error handling:
-1. static getDerivedStateFromError
-2. componentDidCatch
+1. static getDerivedStateFromError - is used to render a fallback UI after an error is thrown
+2. componentDidCatch - method id used to log error information
+
+Error Boundary - A class component that implements either one or both of the lifecycle methods.
+                getDerivedStateFromError or componentDidCatch becomes an error boundary
 
