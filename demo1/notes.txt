@@ -73,3 +73,42 @@ RC - shouldComponentUpdate always retuns TRUE
 
 PC - shouldComponentUpdate for performing SC , true/false
 
+Lifecycle Stages:
+1. Mounting - When an instance of a component is being created and inserted into the DOM
+2. Updating - Whne a component is being re-rendered as a result of changes to either props or state
+3. Unmounting - When a component is being removed from the DOM
+4. Error handling - When there is an error during rendering, in a lifecycle method,
+                    or in the constructor of any child component
+
+Mounting: 
+1. constructor(props) - sp fn that runs when we create a component, initialize state, binding the event handlers,
+                 do not cause any side effects, HTTP request, super(props)-directlyoverwrites the this.state
+2. static getDerivedStateFromProps - 'this' is not allowed inside, set the state, do not cause side effects
+
+3. render - only required function, reads props and state and return JSX, do not chnage the state or interact  with DOM or
+            make ajax calls, children components lifeycle methods are also executed
+
+4. componentDidMount - when the compnent and all its children have been rendered to the DOM
+                       can cause side effects
+
+Updating:
+1. static getDerivedStateFromProps - method is executed every time a component is re rendered, set the state,
+                                    do not cause side effects
+2. shouldComponentUpdate(nextProps, nextState) - preformance optimization, do not cause side effects
+
+3. render
+
+4. getSnapshotBeforeUpdate(prevProps, prevState) - called right before the changes from the virtual DOM 
+                                                    are to be reflected, capture some information fro the DOM,
+                                                    this either return null or return a vlaue,
+                                                    Returned value will be passed as a third parameter to the next method.,
+5. componentDidUpdate(prevProps, prevState, snapshot) - called after the render is finished in the re render cycles
+                                                        can cause side effects
+
+Unmounting:
+1. componentWillUnmount
+
+Error handling:
+1. static getDerivedStateFromError
+2. componentDidCatch
+
