@@ -118,3 +118,12 @@ Error Boundary - A class component that implements either one or both of the lif
 HOC = > const newComponent = higherOrderComponent(originalComponent)
 
 const IronMan = withSuit(TonyStark)
+
+Context API, redux, flux
+Context provides a way to pass data through the component tree
+without having to pass props down manually at every level
+
+1. Create the Context
+2. Provide the context value
+3. consume the context value
+

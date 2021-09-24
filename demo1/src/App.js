@@ -22,6 +22,9 @@ import ErrorBoundary from './comonents/ErrorBoundary';
 import PortalDemo from './comonents/PortalDemo';
 import ClickCounter from './comonents/ClickCounter';
 import HoverCounter from './comonents/HoverCounter';
+import ComponentC from './comonents/ComponentC'
+import { UserProvider} from './comonents/userContext'
+import PostList from './comonents/PostList';
 
 
 function App() {
@@ -29,9 +32,15 @@ function App() {
     <div className="App">
       <header className="App-header">
 
+        <PostList/>
+
+        {/* <UserProvider value="TonyStark">
+         <ComponentC />
+        </UserProvider> */}
+       
         {/* <PortalDemo/> */}
-        <ClickCounter/>
-        <HoverCounter />
+        {/* <ClickCounter/> */}
+        {/* <HoverCounter /> */}
 
         {/* <ErrorBoundary>
           <Hero heroName="Batman" />
