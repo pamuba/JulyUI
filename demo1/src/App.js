@@ -19,6 +19,8 @@ import ParentComp from './comonents/ParentComp';
 import RefsDemo from './comonents/RefsDemo';
 import Hero from './comonents/Hero';
 import ErrorBoundary from './comonents/ErrorBoundary';
+import PortalDemo from './comonents/PortalDemo';
+import ClickCounter from './comonents/ClickCounter';
 
 
 function App() {
@@ -26,7 +28,10 @@ function App() {
     <div className="App">
       <header className="App-header">
 
-        <ErrorBoundary>
+        {/* <PortalDemo/> */}
+        <ClickCounter/>
+
+        {/* <ErrorBoundary>
           <Hero heroName="Batman" />
         </ErrorBoundary>
         
@@ -36,7 +41,7 @@ function App() {
        
         <ErrorBoundary>
           <Hero heroName="Joker" />
-        </ErrorBoundary>
+        </ErrorBoundary> */}
 
         {/* <RefsDemo/> */}
 
