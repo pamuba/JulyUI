@@ -29,3 +29,9 @@ Redux Store
 3. Allows state to be updated vis dispatch(action)
 4. Register listeners via subscribe(listener)
 5. Hanldle unregistering of listeners via the function returned by subscribe(listener)
+
+
+Are all reducers called when an action came to store?
+
+
+middlewares: logging, crash reporting, performing async tasks
