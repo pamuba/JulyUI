@@ -35,3 +35,8 @@ Are all reducers called when an action came to store?
 
 
 middlewares: logging, crash reporting, performing async tasks
+
+axios: http calls 
+redux-thunk:
+Define async creators
+applied middlewares
