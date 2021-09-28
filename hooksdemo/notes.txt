@@ -1,0 +1,9 @@
+1. Only call hooks t the top level
+2. only call hooks from react functions
+
+useEffect: 
+1. componentDidMount
+2. componentDidUpdate
+3. componentWillUnMount
+
+** lets us perform side effects in functional components
