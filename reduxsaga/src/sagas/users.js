@@ -8,13 +8,13 @@ import * as api from '../api/users'
 function* getUsers(){
     try{
         const result = yield call(api.getUsers)
-        // console.log(result.data.data)
-        yield put(actions.getUsersRequest({
+        console.log(result.data.data)
+        yield put(actions.getUsersSuccess({
             items: result.data.data
         }))
     }
     catch(e){
-        console.log("Error")
+        console.log(e.message)
     }
 }
 

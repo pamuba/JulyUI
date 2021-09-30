@@ -11,7 +11,7 @@ class App extends Component {
  
  render(){
   const users = this.props.users
-  console.log(users.items)
+  console.log(users)
   return (
     <div style={{margin:'0 auto', padding:'20px', maxWidth:'600px'}}>
       <UsersList users={users.items} />
