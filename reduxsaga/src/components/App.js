@@ -1,12 +1,21 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { getUsersRequest } from '../actions/users'
+import { getUsersRequest, createUsersRequest } from '../actions/users'
 import UsersList from './UsersList'
+import NewUserForm from './NewUserForm'
 class App extends Component {
  constructor(props) {
    super(props)
  
   this.props.getUsersRequest();
+ }
+
+ handleSubmit = ({firstName, lastName}) => {
+   console.log(firstName, lastName)
+  this.props.createUsersRequest({
+    firstName,
+    lastName
+  })
  }
  
  render(){
@@ -14,6 +23,7 @@ class App extends Component {
   console.log(users)
   return (
     <div style={{margin:'0 auto', padding:'20px', maxWidth:'600px'}}>
+      <NewUserForm onSubmit={this.handleSubmit}></NewUserForm>
       <UsersList users={users.items} />
     </div>
   );
@@ -21,5 +31,6 @@ class App extends Component {
 }
 
 export default connect(({users}) => ({users}) ,{
-  getUsersRequest
+  getUsersRequest,
+  createUsersRequest
 })(App);
